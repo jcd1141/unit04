@@ -23,13 +23,13 @@ interface Player { //defines player info
     rating?: number; //optional
 }
 
+let roster: Player[] = []; //store players
 
 console.log("Welcome To the Football Team Manager");
 
 console.log("1. Create Player");
 console.log("2. View Roster");
-console.log("3. Search Player");
-console.log("4. Exit");
+console.log("3. Exit");
 
 let choice: string | null = prompt("Choice:");
 
@@ -67,10 +67,40 @@ if (choice === "1") {
     else if (positionChoice === "3") {
         playerPosition = Position.WR;
     }
+    else if (positionChoice === "4") {
+        playerPosition = Position.TE;
+    }
+    else if (positionChoice === "5") {
+        playerPosition = Position.OL;
+    }
+    else if (positionChoice === "6") {
+        playerPosition = Position.DL;
+    }
+    else if (positionChoice === "7") {
+        playerPosition = Position.LB;
+    }
+    else if (positionChoice === "8") {
+        playerPosition = Position.CB;
+    }
+    else if (positionChoice === "9") {
+        playerPosition = Position.S;
+    }
+    else if (positionChoice === "10") {
+        playerPosition = Position.K;
+    }
+
+    let newPlayer: Player = {
+        id: 1,
+        name: name ?? "Unknown",
+        position: playerPosition,
+        jerseyNumber: jerseyNumber
+    };
+
+    roster.push(newPlayer);
 
     //shows player info
     console.log("\nPlayer Created:");
-    console.log(`Player Name: ${name}`);
-    console.log(`Jersey Number: ${jerseyNumber}`);
-    console.log(`Position: ${Position[playerPosition]}`);
+    console.log(`Player Name: ${newPlayer.name}`);
+    console.log(`Jersey Number: ${newPlayer.jerseyNumber}`);
+    console.log(`Position: ${Position[newPlayer.position]}`);
 }
