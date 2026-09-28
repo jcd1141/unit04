@@ -9,16 +9,32 @@ console.log("1. The Snail's Tale")
 console.log("2. The Neighbor Next Door");
 console.log("3. Presidential Speech")
 
-let user = prompt("Choice:"); //Choose story
+let user: string | null = prompt("Choice:"); //changed to explicit type annotation
+
+//Checking if user input is a string, typeof guard
+if (typeof user === "string") {
+    console.log("Valid.");
+}
+
+//Strict equality type guard
+if (user === "1") {
+    console.log("The Snail's Tale was selected.");
+}
+if (user === "2") {
+    console.log("The Neighbor Next Door was selected.");
+}
+if (user === "3") {
+    console.log("Presidential Speech was selected.");
+}
 
 //word prompts
-let name = prompt("Enter a name:")?.trim(); //Trims whitespace
-let place1 = prompt("Enter a place:")?.trim();
-let place2 = prompt("Enter another place:")?.trim();
-let adjective = prompt("Enter an adjective:")?.trim();
-let noun = prompt("Enter a noun:")?.trim();
-let verb = prompt("Enter a verb:")?.trim();
-let verbWithIng = prompt("Enter a verb ending in -ing:")?.trim();
+let name: string | undefined = prompt("Enter a name:")?.trim(); //assigns TypeScript types to each variable
+let place1: string | undefined = prompt("Enter a place:")?.trim();
+let place2: string | undefined = prompt("Enter another place:")?.trim();
+let adjective: string | undefined = prompt("Enter an adjective:")?.trim();
+let noun: string | undefined = prompt("Enter a noun:")?.trim();
+let verb: string | undefined = prompt("Enter a verb:")?.trim();
+let verbWithIng: string | undefined = prompt("Enter a verb ending in -ing:")?.trim();
 
 //Stories are template literals, gets rid of abudant concatenation
 let story1 = `Once a snail by the name of ${name} decided it was time for a change. 
