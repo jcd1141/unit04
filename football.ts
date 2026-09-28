@@ -36,5 +36,6 @@ console.log("1. Create Player");
 console.log("2. View Roster");
 console.log("3. Search Player");
 console.log("4. Exit");
+console.log(player1)
 
 let choice: string | null = prompt("Choice:");
